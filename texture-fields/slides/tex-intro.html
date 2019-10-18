@@ -6,13 +6,14 @@
 
 <div class="column-1 figure" style="grid-template-columns: 50% 50%; height: 800px;">
     <!-- Input -->
-    <img src="gfx/onet/chair_07.png" width=80% style="object-fit: cover; height: 600px;"></img>
-    <video class="only-slide" data-autoplay loop src="gfx/texnet/empty_onet.mp4" width=80%
-        style="object-fit: cover; height: 600px;"></video>
+    <img src="gfx/onet/chair_07.png"
+        width=80% style="object-fit: cover; height: 600px;"></img>
     <p>Input</p>
     <!-- Output -->
-    <img class="only-print" src="gfx/texnet/empty_onet.png" width=80%
-        style="object-fit: cover; height: 600px;"></img>
+    <video data-autoplay loop
+        src="gfx/texnet/empty_onet.mp4"
+        poster="gfx/texnet/empty_onet.png"
+        width=80% style="object-fit: cover; height: 600px;"></video>
     <p>Mesh</p>
 </div>
 
@@ -26,86 +27,57 @@
 
 <div class="column-1 figure" style="grid-template-columns: 50% 50%; height: 800px;">
     <!-- Input -->
-    <img src="gfx/onet/chair_07.png" width=80% style="object-fit: cover; height: 600px;"></img>
+    <img src="gfx/onet/chair_07.png"
+        width=80% style="object-fit: cover; height: 600px;"></img>
     <p>Input</p>
     <!-- Output -->
-    <video class="only-slide" data-autoplay loop src="gfx/texnet/single_onet.mp4" width=80%
-        style="object-fit: cover; height: 600px;"></video>
-    <img class="only-print" src="gfx/texnet/single_onet.png" width=80%
-        style="object-fit: cover; height: 600px;"></img>
+    <video data-autoplay loop
+        src="gfx/texnet/single_onet.mp4"
+        poster="gfx/texnet/single_onet.png"
+        width=80% style="object-fit: cover; height: 600px;"></video>
     <p>Mesh + Material</p>
 </div>
 
 ---
 
-<!-- .slide: class="layout-1x1" -->
+<!-- .slide: class="layout-1x2" -->
 
 ## Texture Fields
 
-<strong>Goal</strong>: Predict textured meshes
-
-<div class="column-1 flex-col" >
-    <img class="fragment" data-fragment-index=1 src="gfx/texnet/teaser.svg" width="80%">
-</div>
-
-<footer class="fragment reference" data-fragment-index=1>
-[Oechsle et al, ICCV 2019]
-</footer>
-
-
----
-
-<!-- .slide: class="layout-1x1" -->
-
-## Texture Fields
-
-Existing Representations:
+<div class="subtitle">Colored Voxels:</div>
 
 <div class="column-1 flex-col">
-    <div class="figure" style="grid-template-columns: 33% 33% 33%;">
-        <img class="fragment" data-fragment-index=1 
-            src="gfx/texnet/cat_atlas.png" width="60%">
-        <img class="fragment" data-fragment-index=3
-            src="gfx/texnet/cat_voxels.svg" width="35%">
-        <img class="fragment" data-fragment-index=5
-            src="gfx/texnet/cat_texnet.svg" width="35%">
-        <p class="fragment" data-fragment-index=1>Texture Atlas</p>
-        <p class="fragment" data-fragment-index=3>Colored Voxels</p>
-        <p class="fragment" data-fragment-index=5>Texture Field (ours)</p>
-    </div>
-    <div class="figure" style="grid-template-columns: 33% 33% 33%">
-        <div>
-            <ul class="pro-contra" style="padding-left: 1em">
-                <li class="contra fragment" data-fragment-index=2 style="margin: 0">requires template</li>
-                <li class="contra fragment" data-fragment-index=2 style="margin: 0">discontinuities</li>
-            </ul>
-        </div>
-        <div>
-            <ul class="pro-contra" style="padding-left: 1em">
-                <li class="contra fragment" data-fragment-index=4 style="margin: 0">discretization</li>
-                <li class="contra fragment" data-fragment-index=4 style="margin: 0">memory requirements</li>
-            </ul>
-        </div>
-        <div>
-            <ul class="pro-contra" style="padding-left: 1em">
-                <li class="pro fragment" data-fragment-index=6 style="margin: 0; padding-left: 0em">no template required</li>
-                <li class="pro fragment" data-fragment-index=6 style="margin: 0; padding-left: 0em">no discretization</li>
-            </ul>
-        </div>
-    </div>
+    <img src="gfx/texnet/cat_voxels.png" width="100%"
+        style="object-fit: cover">
 </div>
 
+<div class="column-2">
+    <ul class="pro-contra" style="padding-left: 2em">
+        <li class="pro fragment">Simple</li>
+        <li class="contra fragment">Low resolution</li>
+        <li class="contra fragment">High memory requirements</li>
+    </ul>
+</div>
 
 ---
 
-<!-- .slide: class="layout-1x1" -->
+<!-- .slide: class="layout-1x2" -->
 
 ## Texture Fields
 
-Model Overview (supervised):
+<div class="subtitle">Texture Atlas:</div>
 
-<div class="flex-col">
-    <img src="gfx/texnet/model_overview.svg" width="80%">
+<div class="column-1 flex-col">
+    <img src="gfx/texnet/cat_atlas.png"
+        width="60%" style="object-fit: cover">
+</div>
+
+<div class="column-2">
+    <ul class="pro-contra" style="padding-left: 2em">
+        <li class="pro fragment">High frequency texture</li>
+        <li class="contra fragment">Requires Template</li>
+        <li class="contra fragment">Discontinuities</li>
+    </ul>
 </div>
 
 ---
@@ -114,10 +86,36 @@ Model Overview (supervised):
 
 ## Texture Fields
 
-Model Overview (VAE):
+<strong>Our approach</strong>: Predict continuous Texture Field
 
-<div class="flex-col">
-    <img src="gfx/texnet/model_overview_vae.svg" width="80%">
+<div class="column-1 flex-col">
+    <img src="gfx/texnet/teaser.svg" width=1000px>
+</div>
+
+<footer class="reference">
+    Oechsle, Mescheder, Niemeyer, Strauss & Geiger (ICCV 2019)
+</footer>
+
+---
+
+<!-- .slide: class="layout-1x2" -->
+
+## Texture Fields
+
+<div class="subtitle">
+    Texture Field:
+</div>
+
+<div class="column-1 flex-col">
+    <img src="gfx/texnet/cat_texnet.png" width="100%" style="object-fit: cover">
+</div>
+
+<div class="column-2">
+    <ul class="pro-contra" style="padding-left: 2em">
+        <li class="pro fragment">No discretization</li>
+        <li class="pro fragment">No discontinuities</li>
+        <li class="pro fragment">Independent of shape representation</li>
+    </ul>
 </div>
 
 ---
@@ -126,8 +124,34 @@ Model Overview (VAE):
 
 ## Texture Fields
 
-Model Overview (GAN):
+<div> Model Overview (supervised):</div>
 
 <div class="flex-col">
-    <img src="gfx/texnet/model_overview_gan.svg" width="80%">
+    <svg width=1800px height=900px>
+        <image href="gfx/texnet/method_00.svg" y="0" x="0" width="100%" height="100%"/>
+        <g class="fragment fade-out" data-fragment-index="1">
+            <image class="fragment" data-fragment-index="0" href="gfx/texnet/method_01.svg"
+                   y="0" x="0" width="100%" height="100%"/>
+        </g>
+        <image class="fragment" data-fragment-index="1" href="gfx/texnet/method_02.svg"
+            y="0" x="0" width="100%" height="100%"/>
+        <image class="fragment" data-fragment-index="1" href="gfx/texnet/method_03.svg"
+            y="0" x="0" width="100%" height="100%"/>
+    </svg>
+</div>
+
+---
+
+<!-- .slide: class="layout-1x1" -->
+
+## Texture Fields
+
+<div> Model Overview (VAE):</div>
+
+<div class="flex-col">
+    <svg width=1800px height=900px>
+        <image href="gfx/texnet/method_00.svg" y="0" x="0" width="100%" height="100%"/>
+        <image href="gfx/texnet/method_02.svg" y="0" x="0" width="100%" height="100%"/>
+        <image href="gfx/texnet/method_04.svg" y="0" x="0" width="100%" height="100%"/>
+    </svg>
 </div>
