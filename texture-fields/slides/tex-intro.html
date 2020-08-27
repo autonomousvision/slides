@@ -14,7 +14,7 @@
         src="gfx/texnet/empty_onet.mp4"
         poster="gfx/texnet/empty_onet.png"
         width=80% style="object-fit: cover; height: 600px;"></video>
-    <p>Mesh</p>
+    <p>Geometry</p>
 </div>
 
 ---
@@ -35,7 +35,7 @@
         src="gfx/texnet/single_onet.mp4"
         poster="gfx/texnet/single_onet.png"
         width=80% style="object-fit: cover; height: 600px;"></video>
-    <p>Mesh + Material</p>
+    <p>Geometry + Material</p>
 </div>
 
 ---
@@ -53,9 +53,9 @@
 
 <div class="column-2">
     <ul class="pro-contra" style="padding-left: 2em">
-        <li class="pro fragment">Simple</li>
-        <li class="contra fragment">Low resolution</li>
+        <li class="pro fragment">Grid structure</li>
         <li class="contra fragment">High memory requirements</li>
+        <li class="contra fragment">Low-frequency texture</li>
     </ul>
 </div>
 
@@ -86,7 +86,7 @@
 
 ## Texture Fields
 
-<strong>Our approach</strong>: Learning a continuous field parameterized with a neural net
+<strong>Our approach</strong>: Learning a continuous 3D field parameterized with a neural net
 
 <div class="column-1 flex-col">
     <img src="gfx/texnet/teaser.svg" width=1000px>
@@ -113,7 +113,7 @@
 <div class="column-2">
     <ul class="pro-contra" style="padding-left: 2em">
         <li class="pro fragment">No discretization</li>
-        <li class="pro fragment">No discontinuities</li>
+        <li class="pro fragment">No template required</li>
         <li class="pro fragment">Independent of shape representation</li>
     </ul>
 </div>
@@ -146,12 +146,54 @@
 
 ## Texture Fields
 
-<div> Model Overview (VAE):</div>
+<div> Model Overview (conditional)</div>
+
+<div class="flex-col">
+    <svg width=1800px height=900px>
+        <image href="gfx/texnet/model_overview.svg" y="0" x="0" width="100%" height="100%"/>
+    </svg>
+</div>
+
+---
+
+<!-- .slide: class="layout-1x1" -->
+
+## Texture Fields
+
+<div> Model Overview (generative):</div>
 
 <div class="flex-col">
     <svg width=1800px height=900px>
         <image href="gfx/texnet/method_00.svg" y="0" x="0" width="100%" height="100%"/>
         <image href="gfx/texnet/method_02.svg" y="0" x="0" width="100%" height="100%"/>
         <image href="gfx/texnet/method_04.svg" y="0" x="0" width="100%" height="100%"/>
+    </svg>
+</div>
+
+---
+
+<!-- .slide: class="layout-1x1" -->
+
+## Texture Fields
+
+<div> Model Overview (VAE)</div>
+
+<div class="flex-col">
+    <svg width=1800px height=900px>
+        <image href="gfx/texnet/model_overview_vae.svg" y="0" x="0" width="100%" height="100%"/>
+    </svg>
+</div>
+
+---
+
+<!-- .slide: class="layout-1x1" -->
+
+## Texture Fields
+
+<div> Model Overview (GAN)</div>
+
+<div class="flex-col">
+    <svg width=1800px height=900px>
+        <image href="gfx/texnet/model_overview_gan.svg" y="0" x="0" width="100%" height="100%"/>
     </svg>
 </div>
